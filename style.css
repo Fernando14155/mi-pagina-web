@@ -79,10 +79,12 @@ main {
   margin: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center; /* CENTRA horizontalmente */
+  align-items: center;       /* Centrado horizontal */
+  justify-content: flex-start; /* Alineado arriba */
   min-height: 100vh;
 }
+
+
 
 /* Responsive */
 @media (max-width: 600px) {
