@@ -5,6 +5,23 @@
   padding: 0;
 }
 
+/* Configuramos el body como grid con 2 columnas:
+   - Sidebar (ancho fijo)
+   - Contenido (flexible y centrado)
+*/
+body {
+  display: grid;
+  grid-template-columns: 0 1fr; /* Por defecto sidebar oculto (0 ancho) */
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  transition: grid-template-columns 0.3s ease;
+}
+
+/* Cuando sidebar está abierto, se muestra con 250px */
+body.sidebar-abierto {
+  grid-template-columns: 250px 1fr;
+}
+
 /* Botón hamburguesa */
 .btn-menu {
   position: fixed;
@@ -19,16 +36,13 @@
 
 /* Sidebar */
 .sidebar {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  top: 0;
-  left: 0;
   background-color: #222;
-  overflow-x: hidden;
-  transition: width 0.3s;
+  color: #ddd;
+  height: 100vh;
+  overflow-y: auto;
   padding-top: 60px;
-  z-index: 1000;
+  position: relative;
+  /* sidebar ahora ocupa toda la columna del grid */
 }
 
 /* Links del sidebar */
@@ -62,36 +76,16 @@
   cursor: pointer;
 }
 
-/* Cuando sidebar está abierto */
-.sidebar.abierto {
-  width: 250px;
-}
-
 /* Contenido principal */
 main {
   padding: 20px 40px;
-  margin-left: 0;
-  transition: margin-left 0.3s;
-
-  /* Centrar contenido siempre */
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
-  font-family: Arial, sans-serif;
-}
-
-/* IMPORTANTE: No cambiar text-align ni margen cuando sidebar está abierto para mantener texto centrado */
-/* Si quieres, puedes aumentar el padding-left para que el texto no quede bajo la sidebar, pero manteniendo el centrado: */
-
-.sidebar.abierto ~ main {
-  /* Dejamos margen automático para centrar */
-  margin-left: auto;
-  margin-right: auto;
   max-width: 900px;
-  /* opcional: un padding extra para no estar tan pegado al borde cuando sidebar está abierta */
-  padding-left: 70px;
-  padding-right: 40px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
 }
 
 /* =========================== */
@@ -99,19 +93,21 @@ main {
 /* =========================== */
 
 @media (max-width: 600px) {
-  /* En móviles: esconder el botón del menú y el sidebar */
+  /* En móviles: esconder el botón y sidebar */
   .btn-menu,
   .sidebar {
     display: none;
   }
 
-  /* Ajustar main: centrar todo y mostrar solo texto */
+  body {
+    grid-template-columns: 1fr;
+  }
+
   main {
     margin: 40px 20px;
     font-size: 1.2em;
     color: #333;
-    text-align: center;
-    padding-left: 20px;
-    padding-right: 20px;
+    height: auto;
+    padding: 20px;
   }
 }
