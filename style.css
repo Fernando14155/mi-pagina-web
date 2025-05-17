@@ -5,19 +5,16 @@
   padding: 0;
 }
 
-/* Configuramos el body como grid con 2 columnas:
-   - Sidebar (ancho fijo)
-   - Contenido (flexible y centrado)
-*/
+/* Layout general en grid */
 body {
   display: grid;
-  grid-template-columns: 0 1fr; /* Por defecto sidebar oculto (0 ancho) */
+  grid-template-columns: 0 1fr; /* Sidebar oculto por defecto */
   height: 100vh;
   font-family: Arial, sans-serif;
   transition: grid-template-columns 0.3s ease;
 }
 
-/* Cuando sidebar está abierto, se muestra con 250px */
+/* Mostrar sidebar */
 body.sidebar-abierto {
   grid-template-columns: 250px 1fr;
 }
@@ -41,11 +38,9 @@ body.sidebar-abierto {
   height: 100vh;
   overflow-y: auto;
   padding-top: 60px;
-  position: relative;
-  /* sidebar ahora ocupa toda la columna del grid */
 }
 
-/* Links del sidebar */
+/* Enlaces de navegación */
 .sidebar ul {
   list-style-type: none;
 }
@@ -64,7 +59,7 @@ body.sidebar-abierto {
   color: white;
 }
 
-/* Botón para cerrar */
+/* Botón para cerrar la sidebar */
 .btn-cerrar {
   position: absolute;
   top: 15px;
@@ -76,7 +71,7 @@ body.sidebar-abierto {
   cursor: pointer;
 }
 
-/* Contenido principal */
+/* Contenido principal centrado */
 main {
   padding: 20px 40px;
   text-align: center;
@@ -85,15 +80,12 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
+  align-items: center; /* CENTRA horizontalmente */
+  min-height: 100vh;
 }
 
-/* =========================== */
-/* ======== Responsive ======== */
-/* =========================== */
-
+/* Responsive */
 @media (max-width: 600px) {
-  /* En móviles: esconder el botón y sidebar */
   .btn-menu,
   .sidebar {
     display: none;
@@ -106,8 +98,4 @@ main {
   main {
     margin: 40px 20px;
     font-size: 1.2em;
-    color: #333;
-    height: auto;
-    padding: 20px;
-  }
-}
+    color:
