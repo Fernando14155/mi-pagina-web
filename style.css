@@ -72,9 +72,35 @@ main {
   padding: 20px;
   margin-left: 0;
   transition: margin-left 0.3s;
+
+  /* Centrar contenido */
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
 }
 
 /* Mover contenido cuando el sidebar está abierto */
 .sidebar.abierto ~ main {
   margin-left: 250px;
+}
+
+/* =========================== */
+/* ======== Responsive ======== */
+/* =========================== */
+
+@media (max-width: 600px) {
+  /* En móviles: esconder el botón del menú y el sidebar */
+  .btn-menu,
+  .sidebar {
+    display: none;
+  }
+
+  /* Ajustar main: centrar todo y mostrar solo texto */
+  main {
+    margin: 40px 20px;
+    font-size: 1.2em;
+    color: #333;
+  }
 }
