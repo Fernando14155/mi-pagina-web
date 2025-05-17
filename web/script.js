@@ -1,1 +1,3 @@
-console.log("¡Página web activa!");
+function saludar() {
+    alert("¡Hola! Gracias por visitar mi página 😄");
+}
