@@ -1,3 +1,5 @@
+/* style-mobile.css */
+
 /* Reset básico para móvil */
 * {
   box-sizing: border-box;
@@ -5,80 +7,27 @@
   padding: 0;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  font-family: Arial, sans-serif;
-  margin: 0;
-}
-
+/* Ocultar sidebar y botón menú en móvil */
 .btn-menu,
 .sidebar {
-  display: block;
+  display: none;
 }
 
-.sidebar {
-  background-color: #222;
-  color: #ddd;
-  height: 100vh;
-  overflow-y: auto;
-  padding-top: 60px;
-  position: fixed;
-  width: 250px;
-  left: -250px;
-  top: 0;
-  transition: left 0.3s ease;
-  z-index: 1000;
-}
-/* Así tu JS está correcto porque añade la clase abierto a la sidebar. */
-.sidebar.abierto{
-   left: 0;
+/* Layout móvil: solo una columna para el body */
+body {
+  grid-template-columns: 1fr;
+  font-family: Arial, sans-serif;
 }
 
-/* Cuando esté abierto */
-body.sidebar-abierto .sidebar {
-  left: 0;
-}
-
-.sidebar ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidebar ul li a {
-  padding: 10px 25px;
-  text-decoration: none;
-  font-size: 18px;
-  color: #ddd;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidebar ul li a:hover {
-  background-color: #575757;
-  color: white;
-}
-
-.btn-cerrar {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 30px;
-  background: transparent;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-
-/* En móvil el main centra el contenido vertical y horizontalmente */
+/* Contenido principal centrado y con buen padding */
 main {
-  flex-grow: 1;
-  padding: 20px 15px;
+  padding: 40px 20px;
+  font-size: 1.2em;
+  color: #333;
+  text-align: center;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;  /* centro vertical */
-  align-items: center;      /* centro horizontal */
-  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
