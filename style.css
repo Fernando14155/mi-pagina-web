@@ -82,7 +82,7 @@ main {
   margin: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: center;  /* Esto centra verticalmente */
+  align-items: center;      /* Esto centra horizontalmente */
   min-height: 100vh;
 }
