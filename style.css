@@ -69,7 +69,7 @@
 
 /* Contenido principal */
 main {
-  padding: 20px 40px;  /* Más padding a izquierda y derecha */
+  padding: 20px 40px;
   margin-left: 0;
   transition: margin-left 0.3s;
 
@@ -77,14 +77,14 @@ main {
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
+  text-align: center;  /* Siempre centrado */
   font-family: Arial, sans-serif;
 }
 
 /* Mover contenido cuando el sidebar está abierto */
 .sidebar.abierto ~ main {
-  margin-left: 270px; /* +20px extra para mayor separación */
-  text-align: left;  /* Opcional: alinea texto a la izquierda cuando sidebar está abierta */
+  margin-left: 270px; /* Deja espacio para sidebar */
+  /* No cambiamos text-align para que el texto siga centrado */
 }
 
 /* =========================== */
