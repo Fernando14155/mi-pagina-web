@@ -1,6 +1,4 @@
-/* style-pc.css */
-
-/* Reset básico para PC */
+/* Reset básico */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -85,4 +83,16 @@ main {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+}
+
+/* Responsive móvil */
+@media (max-width: 600px) {
+  /* Ocultar sidebar y botón menú */
+  .btn-menu,
+  .sidebar {
+    display: none;
+  }
+  body {
+    grid-template-columns: 1fr;
+  }
 }
