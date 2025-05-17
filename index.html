@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Mi Página Web</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <title>Mi Página Web - Inicio</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<header>
-    <h1>¡Bienvenido a mi página web!</h1>
-</header>
+<!-- Botón hamburguesa -->
+<button id="btnMenu" class="btn-menu">&#9776;</button>
+
+<!-- Sidebar -->
+<nav id="sidebar" class="sidebar">
+    <button id="btnCerrar" class="btn-cerrar">&times;</button>
+    <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="pagina1.html">Página 1</a></li>
+        <li><a href="pagina2.html">Página 2</a></li>
+        <li><a href="pagina3.html">Página 3</a></li>
+    </ul>
+</nav>
 
 <main>
-    <p>Esta es una página web sencilla creada con HTML, CSS y JavaScript.</p>
-    <button onclick="saludar()">Haz clic aquí</button>
+    <h1>Bienvenido a la página principal</h1>
+    <p>Esta es la página principal con un menú lateral deslizante.</p>
 </main>
-
-<footer>
-    <p>&copy; 2025 - Tu Nombre</p>
-</footer>
 
 <script src="script.js"></script>
 </body>

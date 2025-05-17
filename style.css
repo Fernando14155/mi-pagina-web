@@ -1,33 +1,80 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    text-align: center;
-    padding: 20px;
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-header, footer {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
+/* Botón hamburguesa */
+.btn-menu {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 28px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
 }
 
+/* Sidebar */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #222;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  z-index: 1000;
+}
+
+/* Links del sidebar */
+.sidebar ul {
+  list-style-type: none;
+}
+
+.sidebar ul li a {
+  padding: 10px 25px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #ddd;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar ul li a:hover {
+  background-color: #575757;
+  color: white;
+}
+
+/* Botón para cerrar */
+.btn-cerrar {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 30px;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Cuando sidebar está abierto */
+.sidebar.abierto {
+  width: 250px;
+}
+
+/* Contenido principal */
 main {
-    margin: 20px auto;
-    max-width: 600px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
+  padding: 20px;
+  margin-left: 0;
+  transition: margin-left 0.3s;
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #009578;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+/* Mover contenido cuando el sidebar está abierto */
+.sidebar.abierto ~ main {
+  margin-left: 250px;
 }
-
-button:hover {
-    backgroun
