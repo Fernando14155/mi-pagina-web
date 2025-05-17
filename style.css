@@ -1,81 +1,102 @@
-/* Reset básico para PC */
+/* Reset básico para todas las pantallas */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body {
-  display: grid;
-  grid-template-columns: 0 1fr; /* sidebar cerrado */
-  height: 100vh;
-  font-family: Arial, sans-serif;
-  transition: grid-template-columns 0.3s ease;
+/* Estilos para PC: solo pantallas >= 601px */
+@media (min-width: 601px) {
+  /* Layout con grid: sidebar + contenido */
+  body {
+    display: grid;
+    grid-template-columns: 0 1fr; /* sidebar cerrado */
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    transition: grid-template-columns 0.3s ease;
+  }
+
+  /* Cuando sidebar abierto */
+  body.sidebar-abierto {
+    grid-template-columns: 250px 1fr;
+  }
+
+  /* Botón hamburguesa */
+  .btn-menu {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 28px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    background-color: #222;
+    color: #ddd;
+    height: 100vh;
+    overflow-y: auto;
+    padding-top: 60px;
+    position: relative;
+  }
+
+  /* Links sidebar */
+  .sidebar ul {
+    list-style-type: none;
+  }
+
+  .sidebar ul li a {
+    padding: 10px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #ddd;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .sidebar ul li a:hover {
+    background-color: #575757;
+    color: white;
+  }
+
+  /* Botón cerrar */
+  .btn-cerrar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  /* Contenido principal */
+  main {
+    padding: 20px 40px;
+    text-align: center;
+    max-width: 900px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
 }
 
-body.sidebar-abierto {
-  grid-template-columns: 250px 1fr;
-}
+/* Estilos para móvil (pantallas <= 600px) */
+@media (max-width: 600px) {
+  /* Ocultar sidebar y botón menú */
+  .btn-menu,
+  .sidebar {
+    display: none;
+  }
 
-.btn-menu {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  font-size: 28px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  z-index: 1001;
-}
-
-.sidebar {
-  background-color: #222;
-  color: #ddd;
-  height: 100vh;
-  overflow-y: auto;
-  padding-top: 60px;
-  position: relative;
-}
-
-.sidebar ul {
-  list-style-type: none;
-}
-
-.sidebar ul li a {
-  padding: 10px 25px;
-  text-decoration: none;
-  font-size: 18px;
-  color: #ddd;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidebar ul li a:hover {
-  background-color: #575757;
-  color: white;
-}
-
-.btn-cerrar {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 30px;
-  background: transparent;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-
-/* Ajuste para que el texto quede arriba y centrado horizontalmente,
-   pero con suficiente espacio para no tapar el botón menú */
-main {
-  padding: 60px 40px 20px 40px;  /* 60px top para dejar espacio al botón menú */
-  text-align: center;
-  max-width: 900px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* contenido arriba */
-  align-items: center;         /* centrado horizontal */
-  min-height: 100vh;
+  body {
+    grid-template-columns: 1fr;
+  }
 }
