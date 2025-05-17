@@ -31,7 +31,7 @@ body {
   transition: left 0.3s ease;
   z-index: 1000;
 }
-
+/* Así tu JS está correcto porque añade la clase abierto a la sidebar. */
 .sidebar.abierto{
    left: 0;
 }
