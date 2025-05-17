@@ -1,24 +1,33 @@
-/* Mostrar botón y sidebar en móvil */
+/* style-mobile.css */
+
+/* Reset básico para móvil */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ocultar sidebar y botón menú en móvil */
 .btn-menu,
 .sidebar {
-  display: block;
+  display: none;
 }
 
-/* Sidebar en móvil, igual que en PC */
-.sidebar {
-  width: 250px;
-  left: -250px;
-  transition: left 0.3s ease;
+/* Layout móvil: solo una columna para el body */
+body {
+  grid-template-columns: 1fr;
+  font-family: Arial, sans-serif;
 }
 
-/* Mostrar sidebar si está abierto */
-body.sidebar-abierto .sidebar {
-  left: 0;
-}
-
-/* Ajustes para contenido en móvil */
+/* Contenido principal centrado y con buen padding */
 main {
-  margin: 40px 20px;
+  padding: 40px 20px;
   font-size: 1.2em;
-  padding: 20px;
+  color: #333;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
