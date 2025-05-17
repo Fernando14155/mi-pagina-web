@@ -60,6 +60,10 @@ body.sidebar-abierto .sidebar {
   color: white;
 }
 
+.sidebar {
+  transition: left 0.3s ease;
+}
+
 /* Botón cerrar */
 .btn-cerrar {
   position: absolute;
