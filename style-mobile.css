@@ -32,6 +32,10 @@ body {
   z-index: 1000;
 }
 
+.sidebar.abierto{
+   left: 0;
+}
+
 /* Cuando esté abierto */
 body.sidebar-abierto .sidebar {
   left: 0;
