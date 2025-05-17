@@ -1,10 +1,11 @@
 const btnMenu = document.getElementById("btnMenu");
+const sidebar = document.getElementById("sidebar");
 const btnCerrar = document.getElementById("btnCerrar");
 
 btnMenu.addEventListener("click", () => {
-  document.body.classList.add("sidebar-abierto");
+  sidebar.classList.add("abierto");
 });
 
 btnCerrar.addEventListener("click", () => {
-  document.body.classList.remove("sidebar-abierto");
+  sidebar.classList.remove("abierto");
 });
