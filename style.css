@@ -26,7 +26,7 @@
   left: 0;
   background-color: #222;
   overflow-x: hidden;
-  transition: 0.3s;
+  transition: width 0.3s;
   padding-top: 60px;
   z-index: 1000;
 }
@@ -73,18 +73,25 @@ main {
   margin-left: 0;
   transition: margin-left 0.3s;
 
-  /* Centrar contenido */
+  /* Centrar contenido siempre */
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
-  text-align: center;  /* Siempre centrado */
+  text-align: center;
   font-family: Arial, sans-serif;
 }
 
-/* Mover contenido cuando el sidebar está abierto */
+/* IMPORTANTE: No cambiar text-align ni margen cuando sidebar está abierto para mantener texto centrado */
+/* Si quieres, puedes aumentar el padding-left para que el texto no quede bajo la sidebar, pero manteniendo el centrado: */
+
 .sidebar.abierto ~ main {
-  margin-left: 270px; /* Deja espacio para sidebar */
-  /* No cambiamos text-align para que el texto siga centrado */
+  /* Dejamos margen automático para centrar */
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px;
+  /* opcional: un padding extra para no estar tan pegado al borde cuando sidebar está abierta */
+  padding-left: 70px;
+  padding-right: 40px;
 }
 
 /* =========================== */
@@ -104,5 +111,7 @@ main {
     font-size: 1.2em;
     color: #333;
     text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
