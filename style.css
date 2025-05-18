@@ -1,68 +1,115 @@
-/* General Reset */
+/* Reset básico */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: sans-serif;
 }
 
-/* Fijar el texto de bienvenida en la parte superior y centrado */
-.header {
+/* Layout con grid: sidebar + contenido */
+body {
+  display: grid;
+  grid-template-columns: 0 1fr; /* sidebar cerrado */
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  transition: grid-template-columns 0.3s ease;
+}
+
+/* Cuando sidebar está abierto */
+body.sidebar-abierto {
+  grid-template-columns: 250px 1fr;
+}
+
+/* Texto de bienvenida fijo y centrado arriba */
+.bienvenida {
   position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #282c34;
+  background-color: #333;
   color: white;
   padding: 15px 30px;
   font-size: 24px;
   z-index: 1000;
+  width: fit-content;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
-/* Botón para abrir el sidebar */
-.menu-button {
+/* Botón hamburguesa */
+.btn-menu {
   position: fixed;
   top: 15px;
   left: 15px;
-  background-color: #4CAF50;
-  color: white;
+  font-size: 28px;
+  background: transparent;
   border: none;
-  padding: 10px 15px;
   cursor: pointer;
-  font-size: 18px;
   z-index: 1001;
-  border-radius: 4px;
+  color: #333;
 }
 
-/* Sidebar oculto por defecto */
+/* Sidebar */
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: -250px;
-  height: 100%;
-  width: 250px;
-  background-color: #333;
-  overflow-x: hidden;
-  transition: left 0.3s ease;
+  background-color: #222;
+  color: #ddd;
+  height: 100vh;
+  overflow-y: auto;
   padding-top: 60px;
-  z-index: 999;
+  position: relative;
 }
 
-/* Mostrar el sidebar cuando está activo */
-.sidebar.active {
-  left: 0;
+/* Links del sidebar */
+.sidebar ul {
+  list-style-type: none;
 }
 
-/* Opciones dentro del sidebar */
-.sidebar a {
-  padding: 15px 25px;
+.sidebar ul li a {
+  padding: 10px 25px;
   text-decoration: none;
-  font-size: 20px;
-  color: white;
+  font-size: 18px;
+  color: #ddd;
   display: block;
-  transition: background 0.3s;
+  transition: 0.3s;
 }
 
-.sidebar a:hover {
+.sidebar ul li a:hover {
   background-color: #575757;
+  color: white;
+}
+
+/* Botón cerrar dentro del sidebar */
+.btn-cerrar {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 30px;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Contenido principal */
+main {
+  padding: 20px 40px;
+  text-align: center;
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Responsive móvil */
+@media (max-width: 600px) {
+  .btn-menu,
+  .sidebar {
+    display: none;
+  }
+
+  body {
+    grid-template-columns: 1fr;
+  }
 }
