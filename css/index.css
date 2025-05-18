@@ -10,43 +10,43 @@ body, html {
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
   color: #333;
+  overflow-x: hidden; /* Evita scroll horizontal al ocultar drawer */
 }
 
-/* Layout principal */
 .container {
   display: flex;
   height: 100vh;
+  position: relative;
 }
 
-/* Sidebar izquierda */
+/* Sidebar drawer */
 .sidebar {
-  width: 220px;
+  width: 250px;
   background-color: #222;
   color: #fff;
   padding: 20px;
-  transition: transform 0.3s ease;
-  /* Por defecto está visible */
-  transform: translateX(0);
-  position: relative;
-  z-index: 10;
-}
-
-/* Sidebar oculta */
-.sidebar.hidden {
-  transform: translateX(-100%);
-  position: absolute;
+  position: fixed; /* Fijo para que flote sobre todo */
   top: 0;
   left: 0;
   height: 100vh;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1001;
 }
 
+/* Cuando el drawer está abierto */
+.sidebar.open {
+  transform: translateX(0);
+}
+
+/* Lista de navegación */
 .sidebar nav ul {
   list-style: none;
+  margin-top: 30px;
 }
 
 .sidebar nav ul li {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .sidebar nav ul li a {
@@ -54,14 +54,32 @@ body, html {
   text-decoration: none;
   font-weight: 600;
   display: block;
-  padding: 8px 10px;
-  border-radius: 4px;
+  padding: 10px 15px;
+  border-radius: 6px;
   transition: background-color 0.3s ease;
 }
 
 .sidebar nav ul li a:hover {
   background-color: #555;
   color: #fff;
+}
+
+/* Overlay para oscurecer fondo */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.overlay.hidden {
+  opacity: 0;
+  pointer-events: none; /* No permite click cuando está oculto */
 }
 
 /* Contenido principal */
@@ -71,10 +89,10 @@ body, html {
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  position: relative;
+  margin-left: 0; /* Sin margen porque sidebar está fuera */
 }
 
-/* Botón para togglear sidebar */
+/* Botón toggle drawer */
 #toggleSidebarBtn {
   background-color: #007BFF;
   border: none;
@@ -86,6 +104,8 @@ body, html {
   margin-bottom: 20px;
   width: fit-content;
   transition: background-color 0.3s ease;
+  z-index: 1100; /* Por encima del overlay */
+  position: relative;
 }
 
 #toggleSidebarBtn:hover {
