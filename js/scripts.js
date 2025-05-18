@@ -7,12 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
     sidebar.classList.add('open');
     overlay.classList.remove('hidden');
     sidebar.setAttribute('aria-hidden', 'false');
+    toggleBtn.style.display = 'none';  // Ocultar botón al abrir
   }
 
   function closeDrawer() {
     sidebar.classList.remove('open');
     overlay.classList.add('hidden');
     sidebar.setAttribute('aria-hidden', 'true');
+    toggleBtn.style.display = 'inline-block';  // Mostrar botón al cerrar
   }
 
   toggleBtn.addEventListener('click', () => {
