@@ -85,7 +85,7 @@ body, html {
 /* Contenido principal */
 .main-content {
   flex-grow: 1;
-  padding: 30px;
+  padding: 50px;
   background-color: #fff;
   display: flex;
   flex-direction: column;
