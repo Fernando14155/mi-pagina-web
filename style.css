@@ -37,11 +37,11 @@ body {
   z-index: 1000;
 }
 
-/* Sidebar inicial cerrada */
+/* Sidebar inicialmente oculta */
 .sidebar {
   position: fixed;
   top: 0;
-  left: -180px; /* Oculto casi todo, solo deja ver un poco si quieres */
+  left: -180px; /* Oculto */
   width: 180px;
   height: 100vh;
   background-color: #222;
@@ -51,7 +51,7 @@ body {
   z-index: 998;
 }
 
-/* Cuando sidebar abierta */
+/* Sidebar visible cuando el body tiene esta clase */
 body.sidebar-abierto .sidebar {
   left: 0;
 }
