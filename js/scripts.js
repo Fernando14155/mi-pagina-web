@@ -1,4 +1,10 @@
-// Archivo JS básico para futuras funcionalidades
 document.addEventListener('DOMContentLoaded', () => {
-  console.log("Página cargada correctamente. Listo para futuras interacciones.");
+  const toggleBtn = document.getElementById('toggleSidebarBtn');
+  const sidebar = document.getElementById('sidebar');
+
+  toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('hidden');
+  });
+
+  console.log("Página cargada correctamente. Sidebar toggle activo.");
 });
