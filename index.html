@@ -1,62 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Tienda Web con Sidebar y Carrito</title>
-
-    <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi Tienda Web</title>
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-
 <div class="container">
+  <aside class="sidebar">
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Productos</a></li>
+        <li><a href="#">Ofertas</a></li>
+        <li><a href="#">Contacto</a></li>
+        <li><a href="#">Mi Cuenta</a></li>
+      </ul>
+    </nav>
+  </aside>
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <h2>Menú</h2>
-        <ul id="menu-list">
-            <li>Inicio</li>
-            <li>Productos</li>
-            <li>Ofertas</li>
-            <li>Contacto</li>
-        </ul>
-
-        <hr style="margin: 20px 0; border-color: #57606f;" />
-
-        <div class="cart-summary">
-            <h3>Carrito</h3>
-            <p id="cart-count">Productos: 0</p>
-            <button id="view-cart-btn">Ver carrito</button>
-        </div>
-    </aside>
-
-    <!-- Contenido principal -->
-    <main class="main-content">
-        <div class="welcome-message">
-            ¡Bienvenido a Nuestra Tienda Online!
-        </div>
-
-        <!-- Productos -->
-        <div id="product-list" class="product-list">
-            <!-- Productos generados con JS -->
-        </div>
-
-        <!-- Modal Carrito -->
-        <div id="cart-modal" class="modal hidden">
-            <div class="modal-content">
-                <span id="close-cart" class="close-button">&times;</span>
-                <h2>Tu Carrito</h2>
-                <ul id="cart-items"></ul>
-                <p id="cart-total"></p>
-                <button id="checkout-btn">Pagar</button>
-            </div>
-        </div>
-
-    </main>
-
+  <main class="main-content">
+    <header class="welcome-message">
+      <h1>¡Bienvenido a Mi Tienda Web!</h1>
+      <p>Encuentra los mejores productos y ofertas aquí.</p>
+    </header>
+    <!-- Aquí puede ir más contenido central -->
+  </main>
 </div>
 
-<script src="script.js"></script>
+<script src="js/scripts.js"></script>
 </body>
 </html>
