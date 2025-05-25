@@ -6,12 +6,51 @@
   <title>Contacto - Mi Tienda Web</title>
   <link rel="stylesheet" href="../css/index.css" />
   <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .twitch-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .twitch-player, .twitch-chat {
+      flex: 1 1 100%;
+      height: 400px;
+    }
+
+    @media (min-width: 768px) {
+      .twitch-player {
+        flex: 2 1 60%;
+        height: 480px;
+      }
+      .twitch-chat {
+        flex: 1 1 35%;
+        height: 480px;
+      }
+    }
+  </style>
 </head>
 <body>
 <main class="main-content" style="padding: 30px;">
   <h1>Contacto</h1>
   <p>Contáctanos a través de este formulario.</p>
   <a href="../index.html" style="color: #007BFF;">← Volver a la página principal</a>
+
+  <h2 style="margin-top: 40px;">Transmisión en vivo de ElDramatic0</h2>
+
+  <div class="twitch-container">
+    <iframe
+            class="twitch-player"
+            src="https://player.twitch.tv/?channel=eldramatic0&parent=Fernando14155.github.io"
+            allowfullscreen>
+    </iframe>
+
+    <iframe
+            class="twitch-chat"
+            src="https://www.twitch.tv/embed/eldramatic0/chat?parent=Fernando14155.github.io">
+    </iframe>
+  </div>
 </main>
 </body>
 </html>
